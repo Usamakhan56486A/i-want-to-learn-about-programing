@@ -1,4 +1,4 @@
-# This Is empty File
-Name : Usama
-Age : 24
-Hobby : Programing
+# This Is empty File\n
+Name : Usama\n
+Age : 24\n
+Hobby : Programing\n
