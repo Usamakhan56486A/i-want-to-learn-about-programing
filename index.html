@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>My Django Page</title>
+  <title>My Django Page</title>
 </head>
+
 <body>
-    <h1>Welcome to Django!</h1>
+  <h1>Welcome to Django!</h1>
 </body>
+
 </html>
+<hr>
 
 <h1>Main Title</h1>
 <h2>Subheading</h2>
 <p>This is a paragraph.</p>
+<hr>
 
 <a href="/about/">About Page</a>
 <button>Click Me</button>
+<hr>
 
 <ul>
   <li>Item One</li>
   <li>Item Two</li>
 </ul>
+<hr>
 
 <ol>
   <li>Step One</li>
   <li>Step Two</li>
 </ol>
+<hr>
 
 <form method="POST">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Enter username">
-    <input type="password" name="password" placeholder="Enter password">
-    <button type="submit">Login</button>
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="Enter username">
+  <input type="password" name="password" placeholder="Enter password">
+  <button type="submit">Login</button>
 </form>
+<hr>
 
 <table>
   <tr>
@@ -42,33 +51,163 @@
     <td>95</td>
   </tr>
 </table>
+<hr>
 
 <img src="/static/images/logo.png" alt="Logo">
+<hr>
 
 <h1>{{ user.username }}</h1>
 {% for post in posts %}
-  <p>{{ post.title }}</p>
+<p>{{ post.title }}</p>
 {% endfor %}
 {% extends "base.html" %}
 {% block content %}
-  <h2>Page Content</h2>
+<h2>Page Content</h2>
 {% endblock %}
+<hr>
 
 <!-- home.html -->
 <!DOCTYPE html>
 <html>
-<head>
-    <title>My Blog</title>
-</head>
-<body>
-    <h1>Welcome to My Blog</h1>
 
-    <ul>
-        {% for post in posts %}
-            <li>
-                <strong>{{ post.title }}</strong> by {{ post.author }}
-            </li>
-        {% endfor %}
-    </ul>
+<head>
+  <title>My Blog</title>
+</head>
+
+<body>
+  <h1>Welcome to My Blog</h1>
+
+  <ul>
+    {% for post in posts %}
+    <li>
+      <strong>{{ post.title }}</strong> by {{ post.author }}
+    </li>
+    {% endfor %}
+  </ul>
 </body>
+
 </html>
+<hr>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Heading</h1>
+  <p>Lorem ipsum dolor, sit amet <em>This is italic</em> adipisicing<br> elit. Modi voluptate<strong>This is
+      Strong</strong> quas ab a, autem maxime facere<i>this Is ItalicS</i> quos deserunt eligendi odio quidem itaque
+    incidunt nesciunt excepturi nostrum temporibus suscipit at odit sed magni voluptatibus, doloremque facilis non.
+    Placeat inventore aliquam assumenda!</p>
+  <p>first</p>
+  <p>second</p>
+  <p>third</p>
+  <p>fourth</p>
+  <p>fifth</p>
+</body>
+
+</html>
+<hr>
+
+<ul type='square'>
+  <li>This Is First Line</li>
+  <li>This Is Second Line</li>
+  <li>
+    <ul>
+      <li>Another List</li>
+      <li>Another List</li>
+      <li>Another List</li>
+    </ul>
+  </li>
+  <li>This Is Third Line</li>
+  <li>This Is Fourth Line</li>
+</ul>
+<ol type='1'>
+  <li>This Is First Line</li>
+  <li>This Is Second Line</li>
+  <ol>
+    <li>Another List</li>
+    <li>Another List</li>
+    <li>Another List</li>
+  </ol>
+  <li>This Is Third Line</li>
+  <li>This Is Fourth Line</li>
+</ol>
+<hr>
+
+<!--Tables-->
+
+<table>
+    <thead>
+      <tr>
+      <th>Team Name</th>
+      <th>Total Score</th>
+      <th>Overs</th>
+      <th>Outs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Bangladesh</td>
+        <td>278</td>
+        <td>102</td>
+        <td>10</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Pakistan</td>
+        <td>20</td>
+        <td>10</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+</table>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Names</th>
+      <th>Jobs</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Usama</td>
+      <td>Programer</td>
+      <td>20000</td>
+    </tr>
+    <tr>
+      <td>Saad</td>
+      <td>IT</td>
+      <td>30000</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 20px auto;
+  }
+  th, td {
+    border: 1px solid #070705;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #030e06;
+    color: rgb(250, 254, 11);
+  }
+  tr:nth-child(even) {
+    background-color: #faf7f7;
+  }
+</style>
+
