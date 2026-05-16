@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Django Page</title>
+</head>
+<body>
+    <h1>Welcome to Django!</h1>
+</body>
+</html>
+
+<h1>Main Title</h1>
+<h2>Subheading</h2>
+<p>This is a paragraph.</p>
+
+<a href="/about/">About Page</a>
+<button>Click Me</button>
+
+<ul>
+  <li>Item One</li>
+  <li>Item Two</li>
+</ul>
+
+<ol>
+  <li>Step One</li>
+  <li>Step Two</li>
+</ol>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter username">
+    <input type="password" name="password" placeholder="Enter password">
+    <button type="submit">Login</button>
+</form>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <td>Usama</td>
+    <td>95</td>
+  </tr>
+</table>
+
+<img src="/static/images/logo.png" alt="Logo">
+
+<h1>{{ user.username }}</h1>
+{% for post in posts %}
+  <p>{{ post.title }}</p>
+{% endfor %}
+{% extends "base.html" %}
+{% block content %}
+  <h2>Page Content</h2>
+{% endblock %}
+
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+</head>
+<body>
+    <h1>Welcome to My Blog</h1>
+
+    <ul>
+        {% for post in posts %}
+            <li>
+                <strong>{{ post.title }}</strong> by {{ post.author }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

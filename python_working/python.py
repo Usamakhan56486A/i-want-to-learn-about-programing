@@ -141,19 +141,19 @@
 # print(dict.fromkeys(dict1,1,2,3))
 
 
-users = {
-    "user_01": {
-        "name": "Alice",
-        "email": "alice@example.com",
-        "roles": ["Admin", "Editor"]
-    },
-    "user_02": {
-        "name": "Bob",
-        "email": "bob@example.com",
-        "roles": ["Guest"]
-    }
-}
-print(users.get("user_01").get('name'))
+# users = {
+#     "user_01": {
+#         "name": "Alice",
+#         "email": "alice@example.com",
+#         "roles": ["Admin", "Editor"]
+#     },
+#     "user_02": {
+#         "name": "Bob",
+#         "email": "bob@example.com",
+#         "roles": ["Guest"]
+#     }
+# }
+# print(users.get("user_01").get('name'))
 
 # for user_id, info in users.items():
 #     print(f"ID: {user_id}")
@@ -168,8 +168,58 @@ print(users.get("user_01").get('name'))
 # print(next(it))
 # print(next(it))
 
-dict1 =['a','b','c']
-dict2 =[1,2,3]
-a = dict(zip(dict1,dict2))
-print(a)
+# dict1 =['a','b','c']
+# dict2 =[1,2,3]
+# a = dict(zip(dict1,dict2))
+# print(a)
 
+# a = [1,2,3,4,5]
+# b = [6,7,8,9,0]
+# c = dict(zip(a,b))
+# print(c)
+
+# def logger(func):
+#     def wrapper(*args, **kwargs):
+#         print('Welcome Sir')
+#         print(f'Welcome {args}')
+#         return func(*args, **kwargs)
+#     return wrapper
+
+# @logger
+# def greet(name):
+#     return f"Hello {name}"
+
+# print(greet("Usama"))
+
+#  import time
+# def decor(func):
+#     values = {}
+#     def wrapper(*args):
+#         if args in values:
+#             return values [args]  
+#         result = func(*args)
+#         values [args] = result
+#         return result
+#     return wrapper    
+
+# @decor
+# def add(a,b):
+#     time.sleep(5)
+#     return a + b
+
+
+# print(add(4,5))
+# print(add(4,5))
+# print(add(5,5))
+
+
+
+# views.py
+from django.shortcuts import render
+
+def home(request):
+    posts = [
+        {"title": "My First Post", "author": "Usama"},
+        {"title": "Learning Django", "author": "Copilot"},
+    ]
+    return render(request, "home.html", {"posts": posts})
