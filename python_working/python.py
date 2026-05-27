@@ -213,13 +213,166 @@
 # print(add(5,5))
 
 
+ 
+# # views.py
+# def fibonacci(n):
+#     if n == 0: return 0
+#     elif n == 1: return 1
+#     else: return fibonacci(n-1) + fibonacci(n-2)
 
-# views.py
-from django.shortcuts import render
+# print(fibonacci(10))  # Output: 55
 
-def home(request):
-    posts = [
-        {"title": "My First Post", "author": "Usama"},
-        {"title": "Learning Django", "author": "Copilot"},
-    ]
-    return render(request, "home.html", {"posts": posts})
+
+# def factorial(n):
+#     if n == 0:   # Base case
+#         return 1
+#     else:        # Recursive case
+#         return factorial(n-1) * factorial(n - 1)
+
+# print(factorial(5))  # Output: 120
+
+# def countdown(n):
+#     if n <= 0:
+#         print("Done!")
+#     else:
+#         print(n)
+#         countdown(n - 1)
+
+# countdown(5)
+
+# def string_reverse(n):
+#     # for i in n:
+#         # a+=i
+#     # print(a)
+#     if len(n) == 1:
+#         return n
+#     return string_reverse(n[1:] ) + string_reverse(n[:-1]) + n[0]
+
+# s =string_reverse('hello')
+# print(s)
+
+# def recursion(n):
+#     if n == 0:
+#         return 1
+#     elif n < 1:
+#         return 1
+#     print(n)
+#     a = recursion(n-1) + recursion(n-2)
+#     return a
+# q = recursion(6)
+# print(q)
+
+
+# Hotel menu
+
+
+# class Order:
+#     hotel_menu = {
+#     "burger": 10,
+#     "pizza": 15,
+#     "pasta": 12,
+#     'cold drinks':20
+#     }
+#     def __init__(self,):
+#         pass
+
+#     def order (self):
+#         print("Welcome to our hotel! Here's our menu:")
+#         for item, price in self.hotel_menu.items():
+#             print(f"{item}: ${price}")
+#         total_bill = 0
+#         while True:
+#             user_choice = input("Please enter the item you want to order: ")
+#             user_ammount = int(input("Please enter the quantity: "))
+#             if user_choice in self.hotel_menu:
+#                 print(f"You have ordered {user_ammount} {user_choice}\'s which costs ${self.hotel_menu[user_choice] * user_ammount}.")
+#                 total_bill += self.hotel_menu[user_choice] * user_ammount
+#             else:
+#                 print("Sorry, we don't have that item on the menu.")
+#             next_order =input('Do you want to order anything else? (yes/no): ')
+#             if next_order.lower() == 'yes':
+#                 continue
+#             else:
+#                 print(f"Your total bill is ${total_bill}.")
+#                 break
+# user_order = Order()
+# user_order.order()
+
+
+# from dataclasses import dataclass, field
+# from datetime import datetime
+
+# @dataclass(order=True)
+# class Expense:
+#     amount: float
+#     category: str
+#     description: str
+#     date: datetime = field(default_factory=datetime.now)
+
+# class ExpenseManager:
+#     def __init__(self):
+#         self.expenses = []
+
+#     def add_expense(self, amount, category, description):
+#         new_expense = Expense(amount, category, description)
+#         self.expenses.append(new_expense)
+#         print(f"Added: {new_expense}")
+
+#     def show_total(self):
+#         total = sum(e.amount for e in self.expenses)
+#         print(f"\nTotal Spending: ${total:.2f}")
+
+#     def filter_by_category(self, category):
+#         return [e for e in self.expenses if e.category.lower() == category.lower()]
+
+# e1 = Expense(10.0, "Misc", "Pen")
+# e2 = Expense(10.0, "Misc", "Pen")
+# b = ExpenseManager()
+# b.add_expense(10.0, "Food", "Lunch")
+# b.show_total()
+# print(e1 = e2)  # True
+
+# class Book:
+#     def __init__(self, title, pages):
+#         self.title = title
+#         self.pages = pages
+    
+#     def __str__(self):
+#         return f"Book: {self.title}"
+    
+#     def __len__(self):
+#         return len(self.title)
+
+# b = Book("Python Mastery", 350)
+# print(str(b))   # Book: Python Mastery
+# print(len(b))   # 350
+class metaclass(type):
+    def __new__(cls, name, bases, attrs):
+        print(f"Creating class {name} with metaclass {cls.__name__}")
+        bases = tuple(base for base in bases)  # Ensure bases is a tuple        
+        # Add a custom method to all classes that use this metaclass
+        attrs['custom_method'] = lambda self: f"This is a custom method for {name}"
+        return super().__new__(cls, name, bases, attrs)
+
+
+class Student(metaclass=metaclass):
+    def __init__(self, name, marks):
+        self._name = name
+        self._marks = marks
+    
+    @property
+    def marks(self):
+        return self._marks
+    
+    @marks.setter
+    def marks(self, value):
+        if value < 0:
+            raise ValueError("Marks cannot be negative")
+        self._marks = value
+
+s = Student("Usama", 85)
+print(s.marks)   # 85
+s.marks = -1
+     # updates safely
+print(s.marks)   # 85
+print(s.custom_method())  # This is a custom method for Student
