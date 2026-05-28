@@ -346,33 +346,41 @@
 # b = Book("Python Mastery", 350)
 # print(str(b))   # Book: Python Mastery
 # print(len(b))   # 350
-class metaclass(type):
-    def __new__(cls, name, bases, attrs):
-        print(f"Creating class {name} with metaclass {cls.__name__}")
-        bases = tuple(base for base in bases)  # Ensure bases is a tuple        
-        # Add a custom method to all classes that use this metaclass
-        attrs['custom_method'] = lambda self: f"This is a custom method for {name}"
-        return super().__new__(cls, name, bases, attrs)
+# class metaclass(type):
+#     def __new__(cls, name, bases, attrs):
+#         print(f"Creating class {name} with metaclass {cls.__name__}")
+#         bases = tuple(base for base in bases)  # Ensure bases is a tuple        
+#         # Add a custom method to all classes that use this metaclass
+#         attrs['custom_method'] = lambda self: f"This is a custom method for {name}"
+#         return super().__new__(cls, name, bases, attrs)
 
 
-class Student(metaclass=metaclass):
-    def __init__(self, name, marks):
-        self._name = name
-        self._marks = marks
+# class Student(metaclass=metaclass):
+#     def __init__(self, name, marks):
+#         self._name = name
+#         self._marks = marks
     
-    @property
-    def marks(self):
-        return self._marks
+#     @property
+#     def marks(self):
+#         return self._marks
     
-    @marks.setter
-    def marks(self, value):
-        if value < 0:
-            raise ValueError("Marks cannot be negative")
-        self._marks = value
+#     @marks.setter
+#     def marks(self, value):
+#         if value < 0:
+#             raise ValueError("Marks cannot be negative")
+#         self._marks = value
 
-s = Student("Usama", 85)
-print(s.marks)   # 85
-s.marks = -1
-     # updates safely
-print(s.marks)   # 85
-print(s.custom_method())  # This is a custom method for Student
+# s = Student("Usama", 85)
+# print(s.marks)   # 85
+# s.marks = 23
+#      # updates safely
+# print(s.marks)   # 85
+# print(s.custom_method())  # This is a custom method for Student
+dict={
+        'name':'Usama',
+        'age': 24,
+        'city': 'Hirpur',
+        'country': 'Pakistan',
+        'hobbies': ['coding', 'gaming', 'traveling']
+}
+print("<br>".join(f'{key}: {value}' for key, value in dict.items()))
