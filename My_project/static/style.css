@@ -1,0 +1,51 @@
+
+/* Apply a modern font and smooth transitions */
+body {
+    background-color: #4a4646;   /* dark background */
+    color: rgb(218, 222, 223);  /* light text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.5s ease;
+}
+
+/* Centered, glowing heading */
+h1 {
+    color: hsla(111, 50%, 49%, 0.897);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    margin-top: 40px;
+    font-size: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Add hover effect to heading */
+h1:hover {
+    color: hsla(111, 70%, 60%, 1);
+    cursor: pointer;
+}
+
+/* Style links */
+a {
+    color: #6ecf68;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #9aff9a;
+    text-decoration: underline;
+}
+
+/* Add a container for content */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
